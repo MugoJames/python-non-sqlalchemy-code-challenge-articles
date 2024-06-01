@@ -9,7 +9,7 @@ class Article:
         if not (5 <= len(title) <= 50):
             raise ValueError("Title must be between 5 and 50 characters long")
         Article.all.append(self)
-
+        #Author
 class Author:
     def __init__(self, name):
         if not isinstance (name,str):
@@ -21,7 +21,6 @@ class Author:
     @property
     def name(self):
         return self._name
-####################################################################################3
 
     def articles(self):
         return [article for article in Article.all if article.author == self]
@@ -38,7 +37,7 @@ class Author:
             if self.magazines()
             else None
         )
-
+      ########MAGAZINE
 class Magazine:
     def __init__(self, name, category):
         self.name = name
@@ -55,7 +54,7 @@ class Magazine:
         if not 2 <= len(value) <= 16:
             raise ValueError("Magazine name must be between 2 and 16 characters")
         self._name = value
-#############################################################################################
+
     @property
     def category(self):
         return self._category
@@ -67,9 +66,6 @@ class Magazine:
         if len(category) == 0:
             raise ValueError("Category cannot be empty")
         self._category = category
- #################################################################################################3
-
-
 
     def articles(self):
         return [article for article in Article.all if article.magazine == self ]
